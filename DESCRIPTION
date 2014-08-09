@@ -1,0 +1,18 @@
+Package: RcppStreams
+Type: Package
+Title: Rcpp integration of the Streamulus DSEL for stream processing
+Version: 0.1.0
+Date: 2014-08-05
+Author: Dirk Eddelbuettel <edd@debian.org>
+Maintainer: Dirk Eddelbuettel <edd@debian.org>
+Description: The Streamulus (template, header-only) library by
+ Irit Katriel (at https://github.com/iritkatriel/streamulus) 
+ provides a very powerful yet convenient framework for stream 
+ processing. 
+ .
+ This package connects Streamulus to R by providing both the header
+ files and some examples.
+License: GPL (>= 2)
+Depends: R (>= 3.0.0)
+Imports: Rcpp
+LinkingTo: Rcpp, BH
