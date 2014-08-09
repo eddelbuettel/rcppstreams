@@ -4,6 +4,7 @@
 #' This is an example function illustrating Streamulus
 #'
 #' @title Print some hello messages
+#' @param ignored Just to supply a parameter
 #' @return An unconditional TRUE value
 #' @author Dirk Eddelbuettel
 helloStream <- function(ignored) {
