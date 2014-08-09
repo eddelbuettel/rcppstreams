@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include <iostream>
+//#include <iostream>
 
 #include "strop_stream_producer.h"
 
@@ -56,10 +56,10 @@ namespace streamulus
         
         void Tick(const R& value)
         {
-            if (IsVerbose())
-                std::cout << "-------------   " 
-                          << StropStreamProducer<R>::DisplayName() << " <-- " 
-                          << value << "   -------------" << std::endl;
+            // if (IsVerbose())
+            //     Rcpp::Rcout << "-------------   " 
+            //                 << StropStreamProducer<R>::DisplayName() << " <-- " 
+            //                 << value << "   -------------" << std::endl;
             StropStreamProducer<R>::Output(value); 
             mLastValue = value;
             mIsValid = true;
