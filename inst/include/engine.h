@@ -31,7 +31,7 @@
 #include <boost/graph/depth_first_search.hpp>
 #include <boost/utility.hpp>
 
-//#include <iostream>
+#include <iostream>
 
 namespace streamulus
 {
@@ -193,8 +193,8 @@ namespace streamulus
         
         void ActivateSources()
         {
-            // if (IsVerbose())
-            //     Rcpp::Rcout << "Activate sources: mSources.size() = " << mSources.size() << std::endl;
+            if (IsVerbose())
+                Rcpp::Rcout << "Activate sources: mSources.size() = " << mSources.size() << std::endl;
             for (std::vector<StropPtr>::iterator it = mSources.begin(); it != mSources.end(); ++it)
                 ActivateVertex(*it);
             mSources.clear();
@@ -299,8 +299,8 @@ namespace streamulus
                 
                 if (mEngine->IsVerbose())
                 {
-                    //Rcpp::Rcout << "Finish vertex " << u << "  " //  << mGraph[u]->GetName()
-                    //          << "  TO=" << mGraph[u]->GetTopSortIndex() << std::endl;
+                    Rcpp::Rcout << "Finish vertex " << u << "  " //  << mGraph[u]->GetName()
+                                << "  TO=" << mGraph[u]->GetTopSortIndex() << std::endl;
                 }
             }
         private:
@@ -347,12 +347,12 @@ namespace streamulus
         public:
             VertexPropertyWriter(Graph& g) : mGraph(g) {}
             
-            // void operator()(std::ostream& out, const Graph::vertex_descriptor& v) const
-            // {
-            //     out << "[label=" << mGraph[v]->DisplayName() 
-            //         << "_Desc" << mGraph[v]->GetDescriptor() 
-            //         << "_TO" << mGraph[v]->GetTopSortIndex() << "]";
-            // }
+            void operator()(std::ostream& out, const Graph::vertex_descriptor& v) const
+            {
+                out << "[label=" << mGraph[v]->DisplayName() 
+                    << "_Desc" << mGraph[v]->GetDescriptor() 
+                    << "_TO" << mGraph[v]->GetTopSortIndex() << "]";
+            }
             
         private:
             Graph& mGraph;
@@ -360,12 +360,12 @@ namespace streamulus
         
         void WriteGraph(const std::string& filename)
         {
-            //if (IsVerbose())
-            //    Rcpp::Rcout << "Writing graph to " << filename << std::endl;
-            //std::ofstream file;
-            //file.open (filename.c_str());
-            //boost::write_graphviz(file, mGraph, VertexPropertyWriter(mGraph));
-            //file.close();
+            if (IsVerbose())
+               Rcpp::Rcout << "Writing graph to " << filename << std::endl;
+            std::ofstream file;
+            file.open (filename.c_str());
+            boost::write_graphviz(file, mGraph, VertexPropertyWriter(mGraph));
+            file.close();
         }
 
         Graph mGraph;
