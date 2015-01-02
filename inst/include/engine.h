@@ -134,7 +134,7 @@ namespace streamulus
             typedef typename ExpressionResultType<Expr>::type R;
                         
             if (IsVerbose())
-                boost::proto::display_expr(expr);
+                boost::proto::display_expr(expr, Rcpp::Rcout); // Important: Use Rcpp streams
             
             // Make sure the expression conforms to our grammar
             BOOST_MPL_ASSERT(( boost::proto::matches<Expr, smls_grammar> ));
