@@ -100,10 +100,10 @@ namespace streamulus
 
         virtual void Work()=0;
         
-        // friend std::ostream& operator<<(std::ostream& os, const StropBase& strop)
-        // {
-        //     return os << strop.DisplayName();    
-        // }
+        friend std::ostream& operator<<(std::ostream& os, const StropBase& strop)
+        {
+             return os << strop.DisplayName();    
+        }
 
         void MarkAsDeleted()
         {
