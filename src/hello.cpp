@@ -111,7 +111,7 @@ void hello_stream()
     // 
     
     
-    //streamulus_engine.Subscribe(Streamify<print>(hello + s + exc));    
+    streamulus_engine.Subscribe(Streamify<print>(hello + s + exc));    
 
     // Insert data to the input stream
     InputStreamPut<std::string>(s, "World");
@@ -124,6 +124,7 @@ void hello_stream()
 //' This is an example function illustrating Streamulus
 //'
 //' @title Print some hello messages
+//' @param ignored Just to supply a parameter
 //' @return An unconditional TRUE value
 //' @author Dirk Eddelbuettel
 // [[Rcpp::export]]

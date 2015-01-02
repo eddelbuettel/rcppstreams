@@ -263,7 +263,7 @@ void cross_alert_example(int f1, int f2) {
     }
 }
 
-//' This is am example function illustrating Streamulus
+//' This is an example function illustrating Streamulus
 //'
 //' @title Alert for cross of two moving averages
 //' @param f1 Parameter for the slower exponential moving average

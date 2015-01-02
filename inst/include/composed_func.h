@@ -47,7 +47,7 @@ namespace streamulus
             : f(f_)
             , g(g_)
         {
-            std::cout << "Composed two functions!" << std::endl;
+            Rcpp::Rcout << "Composed two functions!" << std::endl;
         }
     
         template<typename Signature>

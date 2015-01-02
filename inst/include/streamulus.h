@@ -21,6 +21,8 @@
 
 #pragma once
 
+#include <Rcpp.h>
+
 #include "engine.h"
 #include "input_stream.h"
 #include "operators.h"

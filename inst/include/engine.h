@@ -99,7 +99,7 @@ namespace streamulus
             mWorking = true;
             
             
-            // std::cout << "Work called. mQueue.size() = " << mQueue.size() << std::endl;
+            // Rcpp::Rcout << "Work called. mQueue.size() = " << mQueue.size() << std::endl;
             while (!mQueue.empty())
             {
                 std::set<QueueEntry>::iterator it = mQueue.begin();
@@ -134,7 +134,7 @@ namespace streamulus
             typedef typename ExpressionResultType<Expr>::type R;
                         
             if (IsVerbose())
-                boost::proto::display_expr(expr);
+                boost::proto::display_expr(expr, Rcpp::Rcout); // Important: Use Rcpp streams
             
             // Make sure the expression conforms to our grammar
             BOOST_MPL_ASSERT(( boost::proto::matches<Expr, smls_grammar> ));
@@ -194,7 +194,7 @@ namespace streamulus
         void ActivateSources()
         {
             if (IsVerbose())
-                std::cout << "Activate sources: mSources.size() = " << mSources.size() << std::endl;
+                Rcpp::Rcout << "Activate sources: mSources.size() = " << mSources.size() << std::endl;
             for (std::vector<StropPtr>::iterator it = mSources.begin(); it != mSources.end(); ++it)
                 ActivateVertex(*it);
             mSources.clear();
@@ -299,8 +299,8 @@ namespace streamulus
                 
                 if (mEngine->IsVerbose())
                 {
-                    std::cout << "Finish vertex " << u << "  " //  << mGraph[u]->GetName()
-                              << "  TO=" << mGraph[u]->GetTopSortIndex() << std::endl;
+                    Rcpp::Rcout << "Finish vertex " << u << "  " //  << mGraph[u]->GetName()
+                                << "  TO=" << mGraph[u]->GetTopSortIndex() << std::endl;
                 }
             }
         private:
@@ -361,7 +361,7 @@ namespace streamulus
         void WriteGraph(const std::string& filename)
         {
             if (IsVerbose())
-                std::cout << "Writing graph to " << filename << std::endl;
+               Rcpp::Rcout << "Writing graph to " << filename << std::endl;
             std::ofstream file;
             file.open (filename.c_str());
             boost::write_graphviz(file, mGraph, VertexPropertyWriter(mGraph));

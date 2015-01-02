@@ -102,7 +102,7 @@ namespace streamulus
         
         friend std::ostream& operator<<(std::ostream& os, const StropBase& strop)
         {
-            return os << strop.DisplayName();    
+             return os << strop.DisplayName();    
         }
 
         void MarkAsDeleted()
