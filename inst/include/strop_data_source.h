@@ -21,7 +21,7 @@
 
 #pragma once
 
-//#include <iostream>
+#include <iostream>
 
 #include "strop_stream_producer.h"
 
