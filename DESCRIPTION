@@ -15,4 +15,4 @@ Description: The Streamulus (template, header-only) library by
 License: GPL (>= 2)
 Depends: R (>= 3.0.0)
 Imports: Rcpp
-LinkingTo: Rcpp, BH
+LinkingTo: Rcpp
