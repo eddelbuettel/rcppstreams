@@ -38,6 +38,7 @@
 //
 // ********************************************************
 
+#if 0
 #include <streamulus.h>         // include Rcpp.h as well
 //#include <iostream>
 
@@ -118,7 +119,7 @@ void hello_stream()
     InputStreamPut<std::string>(s, "London");
     InputStreamPut<std::string>(s, "Streamulus");    
 }
-
+#endif
 
 
 //' This is an example function illustrating Streamulus
@@ -129,6 +130,6 @@ void hello_stream()
 //' @author Dirk Eddelbuettel
 // [[Rcpp::export]]
 bool helloStream(int ignored) {
-    hello_stream();
+    // -- parked for now --  hello_stream();
     return true;
 }

@@ -19,8 +19,7 @@ install:
   - ./travis-tool.sh install_r BH
 
 script:
-#  - ./travis-tool.sh run_tests
-  - echo "Now now: ./travis-tool.sh run_tests" 
+  - ./travis-tool.sh run_tests
 
 # after_script:
 #   - ./travis-tool.sh dump_logs
