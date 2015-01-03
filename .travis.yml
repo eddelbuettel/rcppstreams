@@ -20,7 +20,7 @@ install:
 
 script:
 #  - ./travis-tool.sh run_tests
-  - echo "Now now: ./travis-tool.sh run_tests" && exit 0
+  - echo "Now now: ./travis-tool.sh run_tests" 
 
 # after_script:
 #   - ./travis-tool.sh dump_logs
