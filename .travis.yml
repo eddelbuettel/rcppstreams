@@ -15,7 +15,8 @@ before_install:
   - ./travis-tool.sh bootstrap
 
 install:
-  - ./travis-tool.sh install_r Rcpp BH
+  - ./travis-tool.sh install_r Rcpp 
+  #- ./travis-tool.sh install_r BH
   - ./travis-tool.sh install_aptget libboost-all-dev
 
 script:
