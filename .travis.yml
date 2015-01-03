@@ -16,14 +16,13 @@ before_install:
 
 install:
   - ./travis-tool.sh install_r Rcpp 
-  #- ./travis-tool.sh install_r BH
-  - ./travis-tool.sh install_aptget libboost-all-dev
+  - ./travis-tool.sh install_r BH
 
-script:
-  - ./travis-tool.sh run_tests
+# script:
+#   - ./travis-tool.sh run_tests
 
-after_script:
-  - ./travis-tool.sh dump_logs
+# after_script:
+#   - ./travis-tool.sh dump_logs
 
 notifications:
   email:
