@@ -25,6 +25,7 @@
 // along with Streamulus.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#if 0
 #include <streamulus.h>         // include Rcpp.h as well
 //#include <iostream>
 
@@ -263,6 +264,7 @@ void cross_alert_example(int f1, int f2) {
     }
 }
 
+#endif
 //' This is an example function illustrating Streamulus
 //'
 //' @title Alert for cross of two moving averages
@@ -272,6 +274,6 @@ void cross_alert_example(int f1, int f2) {
 //' @author Dirk Eddelbuettel
 // [[Rcpp::export]]
 bool crossAlert(int f1, int f2) {
-    // -- parked for now --  cross_alert_example(f1, f2);
+    // ******** FIXME ************************************ cross_alert_example(f1, f2);
     return true;
 }

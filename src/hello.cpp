@@ -38,6 +38,7 @@
 //
 // ********************************************************
 
+#if 0
 #include <streamulus.h>         // include Rcpp.h as well
 //#include <iostream>
 
@@ -120,6 +121,7 @@ void hello_stream()
 }
 
 
+#endif
 //' This is an example function illustrating Streamulus
 //'
 //' @title Print some hello messages
@@ -128,6 +130,6 @@ void hello_stream()
 //' @author Dirk Eddelbuettel
 // [[Rcpp::export]]
 bool helloStream(int ignored) {
-    // -- parked for now --  hello_stream();
+     // ******** FIXME ************************************ hello_stream();
     return true;
 }
