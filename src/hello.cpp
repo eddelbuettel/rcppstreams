@@ -38,7 +38,6 @@
 //
 // ********************************************************
 
-#if 0
 #include <streamulus.h>         // include Rcpp.h as well
 //#include <iostream>
 
@@ -119,7 +118,6 @@ void hello_stream()
     InputStreamPut<std::string>(s, "London");
     InputStreamPut<std::string>(s, "Streamulus");    
 }
-#endif
 
 
 //' This is an example function illustrating Streamulus

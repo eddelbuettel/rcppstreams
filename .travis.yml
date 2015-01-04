@@ -15,14 +15,13 @@ before_install:
   - ./travis-tool.sh bootstrap
 
 install:
-  - ./travis-tool.sh install_r Rcpp 
-  - ./travis-tool.sh install_r BH
+  - ./travis-tool.sh install_r Rcpp BH
 
 script:
   - ./travis-tool.sh run_tests
 
-# after_script:
-#   - ./travis-tool.sh dump_logs
+after_script:
+  - ./travis-tool.sh dump_logs
 
 notifications:
   email:

@@ -25,7 +25,6 @@
 // along with Streamulus.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#if 0
 #include <streamulus.h>         // include Rcpp.h as well
 //#include <iostream>
 
@@ -263,7 +262,6 @@ void cross_alert_example(int f1, int f2) {
         InputStreamPut(ts, TimeValue(t, i % 5));
     }
 }
-#endif
 
 //' This is an example function illustrating Streamulus
 //'
