@@ -2,7 +2,7 @@
 
 // adapted from Streamulus example 'C_user_defined_functions_and_filters.cpp'
 //
-// Dirk Eddelbuettel, August 2014
+// R Integration Copyright (C) 2014 - 2015  Dirk Eddelbuettel 
 
 
 // C_user_defined_functions_and_filters.cpp
@@ -106,10 +106,9 @@ struct TimeValue {
     
     TimeValue(/*clock_t*/ double t, double v) : time(t), value(v) {}
     
-    // -- dit not work  friend Rcpp::Rostream<true>& operator<<(Rcpp::Rostream<true>& os, const TimeValue& tv) {
-    // friend std::ostream& operator<<(std::ostream& os, const TimeValue& tv) {
-    //     return os << "{" << tv.time << "," << tv.value << "}";
-    // }
+    friend std::ostream& operator<<(std::ostream& os, const TimeValue& tv) {
+        return os << "{" << tv.time << "," << tv.value << "}";
+    }
     
     //clock_t time;
     double time;
@@ -184,11 +183,10 @@ struct cross_alert
     
     
     bool operator()(const bool is_golden_cross) {
-        // if (is_golden_cross)
-        //     Rcpp::Rcout << "Golden cross detected!" << std::endl;
-        // else
-        //     Rcpp::Rcout << "Death cross detected!" << std::endl;
-        
+        if (is_golden_cross)
+            Rcpp::Rcout << "Golden cross detected!" << std::endl;
+        else
+            Rcpp::Rcout << "Death cross detected!" << std::endl;
         return is_golden_cross;
     }
     
@@ -208,7 +206,7 @@ struct print {
     template<typename T>
     typename result<print(T)>::type
     operator()(const T& value) const { 
-        // Rcpp::Rcout << value << std::endl;
+        Rcpp::Rcout << value << std::endl;
         return value;
     }
 };
@@ -241,21 +239,21 @@ void cross_alert_example(int f1, int f2) {
     Streamulus engine;
 
     // The moving averages are streamified from the function objects.
-    //Mavg mavg1(f1);
-    //Mavg mavg10(f2);
+    Mavg mavg1(f1);
+    Mavg mavg10(f2);
     
-    // Subscription<double>::type slow = engine.Subscribe(Streamify(mavg1)(ts));
-    // Subscription<double>::type fast = engine.Subscribe(Streamify(mavg10)(ts));
+    Subscription<double>::type slow = engine.Subscribe(Streamify(mavg1)(ts));
+    Subscription<double>::type fast = engine.Subscribe(Streamify(mavg10)(ts));
 
     // print and cross_alert are streamified from the types (this work because they 
     // can be default constructed).
     
     // Print the moving averages:
-    //engine.Subscribe(Streamify<print>(std::string("Slow Mavg = ") + Streamify<as_string>(slow)));
-    //engine.Subscribe(Streamify<print>(std::string("Fast Mavg = ") + Streamify<as_string>(fast)));
+    engine.Subscribe(Streamify<print>(std::string("Slow Mavg = ") + Streamify<as_string>(slow)));
+    engine.Subscribe(Streamify<print>(std::string("Fast Mavg = ") + Streamify<as_string>(fast)));
 
     // The cross detection expression:
-    //engine.Subscribe(Streamify<cross_alert>( Streamify<unique<bool> >(slow < fast)));
+    engine.Subscribe(Streamify<cross_alert>( Streamify<unique<bool> >(slow < fast)));
 
     for (int i=0; i<15; i++) {
         double t = (i % 2) ? i/2.0 : (i-1)/2.0 + 0.125;
