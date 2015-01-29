@@ -123,11 +123,10 @@ void hello_stream()
 //' This is an example function illustrating Streamulus
 //'
 //' @title Print some hello messages
-//' @param ignored Just to supply a parameter
 //' @return An unconditional TRUE value
 //' @author Dirk Eddelbuettel
 // [[Rcpp::export]]
-bool helloStream(int ignored) {
+bool helloStream() {
     hello_stream();
     return true;
 }

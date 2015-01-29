@@ -6,14 +6,13 @@
 using namespace Rcpp;
 
 // helloStream
-bool helloStream(int ignored);
-RcppExport SEXP RcppStreams_helloStream(SEXP ignoredSEXP) {
+bool helloStream();
+RcppExport SEXP RcppStreams_helloStream() {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< int >::type ignored(ignoredSEXP );
-        bool __result = helloStream(ignored);
+        bool __result = helloStream();
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);

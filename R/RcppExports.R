@@ -4,14 +4,13 @@
 #' This is an example function illustrating Streamulus
 #'
 #' @title Print some hello messages
-#' @param ignored Just to supply a parameter
 #' @return An unconditional TRUE value
 #' @author Dirk Eddelbuettel
-helloStream <- function(ignored) {
-    .Call('RcppStreams_helloStream', PACKAGE = 'RcppStreams', ignored)
+helloStream <- function() {
+    .Call('RcppStreams_helloStream', PACKAGE = 'RcppStreams')
 }
 
-#' This is am example function illustrating Streamulus
+#' This is an example function illustrating Streamulus
 #'
 #' @title Alert for cross of two moving averages
 #' @param f1 Parameter for the slower exponential moving average
