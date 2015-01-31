@@ -30,3 +30,12 @@ crossAlert <- function(f1, f2) {
     .Call('RcppStreams_crossAlert', PACKAGE = 'RcppStreams', f1, f2)
 }
 
+#' This is an example function illustrating Streamulus
+#'
+#' @title Sliding window function example
+#' @return An unconditional TRUE value
+#' @author Dirk Eddelbuettel
+slidingWindow <- function() {
+    .Call('RcppStreams_slidingWindow', PACKAGE = 'RcppStreams')
+}
+

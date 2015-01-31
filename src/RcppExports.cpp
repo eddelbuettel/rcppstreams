@@ -49,3 +49,17 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// slidingWindow
+bool slidingWindow();
+RcppExport SEXP RcppStreams_slidingWindow() {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        bool __result = slidingWindow();
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
