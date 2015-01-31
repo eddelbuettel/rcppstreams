@@ -1,3 +1,9 @@
+// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; indent-tabs-mode: nil; -*-
+
+// adapted from Streamulus example 'A_hello_world.cpp'
+//
+// R Integration Copyright (C) 2014 - 2015  Dirk Eddelbuettel 
+
 //
 //  hello_world.cpp
 //
