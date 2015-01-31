@@ -3,6 +3,15 @@
 
 #' This is an example function illustrating Streamulus
 #'
+#' @title Common 'greeting' carried across several expressions
+#' @return An unconditional TRUE value
+#' @author Dirk Eddelbuettel
+commonSubexpressions <- function() {
+    .Call('RcppStreams_commonSubexpressions', PACKAGE = 'RcppStreams')
+}
+
+#' This is an example function illustrating Streamulus
+#'
 #' @title Print some hello messages
 #' @return An unconditional TRUE value
 #' @author Dirk Eddelbuettel

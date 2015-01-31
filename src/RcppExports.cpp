@@ -5,6 +5,20 @@
 
 using namespace Rcpp;
 
+// commonSubexpressions
+bool commonSubexpressions();
+RcppExport SEXP RcppStreams_commonSubexpressions() {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        bool __result = commonSubexpressions();
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // helloStream
 bool helloStream();
 RcppExport SEXP RcppStreams_helloStream() {
