@@ -1,0 +1,66 @@
+2015-01-31  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Wrapped up as release 0.1.0
+
+2015-01-30  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/sliding.cpp: New function slidingWindows() added based on
+	Streamulus example D*
+	* man/slidingWindow.Rd: Ditto
+
+	* src/common.cpp" New function commonSubexpressions() added based on
+	Streamulus example B*
+
+	* inst/tests/GNUmakefile: Renamed from Makefile to lease R CMD check
+	* inst/examples/GNUmakefile: Ditto
+
+2015-01-28  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/movavg.cpp: Fully restore second example disabled for i/o tests
+	* src/hello.cpp: Simpler (void) interface to first example
+
+2015-01-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .travis.yml: Activated now that Boost Fusion and Graph are in BH
+
+2015-01-02  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/engine.h: Supply Rcpp::Rcout as an argument to
+	boost::proto::display_expr [thanks, @dcdillon !!] which suppresses
+	default use of std::cout about which R CMD check complains loudly
+
+	* .travis.yml: First steps towards TravisCI integration -- not yet
+	successful as we need more pieces from Boost than Travis has
+
+2014-08-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/*: Various unsuccessful attempts to suppress std::cout
+
+	* src/hello.cpp: Add basic roxygen documentation
+	* src/movavg.cpp: Ditto
+
+	* inst/include/*: Moved headers from src/ to be used by other packages
+
+	* inst/doc/*: Moved from doc/ to ensure installation in user package
+	* inst/examples/*: Moved from examples/ to ensure installation in pkg
+
+	* src/hello.cpp: First example based on Streamulus example A*
+	* src/movavg.cpp: Second example based on Streamulus example C*
+
+	* DESCRIPTION: Basic package infrastructure
+	* NAMESPACE: Ditto
+	* src/Makevars: Ditto
+
+2014-08-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/engine.h: Do not unconditionally write out graph file
+
+	* tests/tests.cpp: Added outer wrapper
+	* tests/Makefile: Added as well
+
+	* examples/Makefile: Added
+
+	* exampples/*.cpp: Protect main() behind a define in all examples
+
+	* src/transforms.h: Comment-out unused variable for g++ -pedantic
+	* src/engine.h: Reorder initialization for g++ -pedantic
