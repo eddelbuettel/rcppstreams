@@ -121,6 +121,7 @@ void common_subexpressions()
 //' @title Common 'greeting' carried across several expressions
 //' @return An unconditional TRUE value
 //' @author Dirk Eddelbuettel
+//' @examples commonSubexpressions()
 // [[Rcpp::export]]
 bool commonSubexpressions() {
     common_subexpressions();

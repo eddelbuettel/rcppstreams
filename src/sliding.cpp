@@ -125,6 +125,7 @@ void sliding_window_function_example()
 //' @title Sliding window function example
 //' @return An unconditional TRUE value
 //' @author Dirk Eddelbuettel
+//' @examples slidingWindow()
 // [[Rcpp::export]]
 bool slidingWindow() {
     sliding_window_function_example();

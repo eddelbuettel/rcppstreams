@@ -17,6 +17,9 @@ An unconditional TRUE value
 \description{
 This is an example function illustrating Streamulus
 }
+\examples{
+crossAlert(10,20)
+}
 \author{
 Dirk Eddelbuettel
 }

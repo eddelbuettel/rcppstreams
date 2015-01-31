@@ -12,6 +12,9 @@ An unconditional TRUE value
 \description{
 This is an example function illustrating Streamulus
 }
+\examples{
+helloStream()
+}
 \author{
 Dirk Eddelbuettel
 }

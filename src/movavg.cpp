@@ -268,6 +268,7 @@ void cross_alert_example(int f1, int f2) {
 //' @param f2 Parameter for the faster exponential moving average
 //' @return An unconditional TRUE value
 //' @author Dirk Eddelbuettel
+//' @examples crossAlert(10,20)
 // [[Rcpp::export]]
 bool crossAlert(int f1, int f2) {
     cross_alert_example(f1, f2);

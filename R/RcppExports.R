@@ -6,6 +6,7 @@
 #' @title Common 'greeting' carried across several expressions
 #' @return An unconditional TRUE value
 #' @author Dirk Eddelbuettel
+#' @examples commonSubexpressions()
 commonSubexpressions <- function() {
     .Call('RcppStreams_commonSubexpressions', PACKAGE = 'RcppStreams')
 }
@@ -15,6 +16,7 @@ commonSubexpressions <- function() {
 #' @title Print some hello messages
 #' @return An unconditional TRUE value
 #' @author Dirk Eddelbuettel
+#' @examples helloStream()
 helloStream <- function() {
     .Call('RcppStreams_helloStream', PACKAGE = 'RcppStreams')
 }
@@ -26,6 +28,7 @@ helloStream <- function() {
 #' @param f2 Parameter for the faster exponential moving average
 #' @return An unconditional TRUE value
 #' @author Dirk Eddelbuettel
+#' @examples crossAlert(10,20)
 crossAlert <- function(f1, f2) {
     .Call('RcppStreams_crossAlert', PACKAGE = 'RcppStreams', f1, f2)
 }
@@ -35,6 +38,7 @@ crossAlert <- function(f1, f2) {
 #' @title Sliding window function example
 #' @return An unconditional TRUE value
 #' @author Dirk Eddelbuettel
+#' @examples slidingWindow()
 slidingWindow <- function() {
     .Call('RcppStreams_slidingWindow', PACKAGE = 'RcppStreams')
 }

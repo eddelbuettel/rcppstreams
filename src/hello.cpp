@@ -131,6 +131,7 @@ void hello_stream()
 //' @title Print some hello messages
 //' @return An unconditional TRUE value
 //' @author Dirk Eddelbuettel
+//' @examples helloStream()
 // [[Rcpp::export]]
 bool helloStream() {
     hello_stream();

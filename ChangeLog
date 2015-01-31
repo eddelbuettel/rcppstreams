@@ -2,6 +2,9 @@
 
 	* DESCRIPTION: Wrapped up as release 0.1.0
 
+	* src/*.cpp: Add simple example to each roxygen documentation entry
+	* man/*.Rd: Ditto
+
 2015-01-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/sliding.cpp: New function slidingWindows() added based on
