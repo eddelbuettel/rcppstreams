@@ -21,7 +21,11 @@
 
 #pragma once
 
-#include <Rcpp.h>
+#include <RcppStreams.h>
+
+#if !defined(StreamulusOut)
+  #define StreamulusOut std::cout
+#endif
 
 #include "engine.h"
 #include "input_stream.h"

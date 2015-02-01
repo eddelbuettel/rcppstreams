@@ -84,7 +84,7 @@ namespace streamulus
                 engine->AddSource(strop);
             }
             if (engine->IsVerbose())
-                Rcpp::Rcout << "AddStropToGraph: " << strop << " returning " << strop->GetDescriptor() << std::endl; 
+                StreamulusOut << "AddStropToGraph: " << strop << " returning " << strop->GetDescriptor() << std::endl; 
             return strop;
         }
     };
@@ -108,7 +108,7 @@ namespace streamulus
         operator()(const F& f, State engine)
         {  
             if (engine->IsVerbose())
-                Rcpp::Rcout << "generic_func" << std::endl;
+                StreamulusOut << "generic_func" << std::endl;
             //typedef result<generic_func(F&,State)> Result;
             typedef Func0<F> FuncStropType; 
             
@@ -139,7 +139,7 @@ namespace streamulus
                    State engine)
         {  
             if (engine->IsVerbose())
-                Rcpp::Rcout << "generic_func" << std::endl;
+                StreamulusOut << "generic_func" << std::endl;
             typedef result<generic_func(F&,Arg1Strop,State)> Result;
             typedef Func1<F
             ,typename Result::Arg1Type
@@ -171,7 +171,7 @@ namespace streamulus
         operator()(const F& f,const Arg1Strop arg1, const Arg2Strop arg2, State engine)
         {   
             if (engine->IsVerbose())
-                Rcpp::Rcout << "generic_func" << std::endl;
+                StreamulusOut << "generic_func" << std::endl;
             typedef result<generic_func(F&,Arg1Strop,Arg2Strop, State)> Result;        
             typedef Func2<F, typename Result::Arg1Type, typename Result::Arg2Type> FuncStropType; 
             boost::shared_ptr<FuncStropType> funcStropPtr(new FuncStropType(f)); 
@@ -215,7 +215,7 @@ namespace streamulus
                    State engine)
         {   
             if (engine->IsVerbose())
-                Rcpp::Rcout << "generic_func" << std::endl;
+                StreamulusOut << "generic_func" << std::endl;
             typedef result<generic_func(F&,Arg1Strop,Arg2Strop,Arg3Strop,State)> Result;        
             typedef Func3<F
             ,typename Result::Arg1Type
@@ -270,7 +270,7 @@ namespace streamulus
                    State engine)
         {   
             if (engine->IsVerbose())
-                Rcpp::Rcout << "generic_func" << std::endl;
+                StreamulusOut << "generic_func" << std::endl;
             typedef result<generic_func(F&,Arg1Strop,Arg2Strop,Arg3Strop,Arg4Strop,State)> Result;        
             typedef Func4<F
             ,typename Result::Arg1Type
@@ -332,7 +332,7 @@ namespace streamulus
                    State engine)
         {   
             if (engine->IsVerbose())
-                Rcpp::Rcout << "generic_func" << std::endl;
+                StreamulusOut << "generic_func" << std::endl;
             typedef result<generic_func(F&,Arg1Strop,Arg2Strop,Arg3Strop,Arg4Strop,Arg5Strop,State)> Result;        
             typedef Func5<F
                         ,typename Result::Arg1Type

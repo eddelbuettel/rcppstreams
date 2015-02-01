@@ -56,10 +56,10 @@ namespace streamulus
         
         void Tick(const R& value)
         {
-            // if (IsVerbose())
-            //     Rcpp::Rcout << "-------------   " 
-            //                 << StropStreamProducer<R>::DisplayName() << " <-- " 
-            //                 << value << "   -------------" << std::endl;
+            if (IsVerbose())
+                 StreamulusOut << "-------------   " 
+                               << StropStreamProducer<R>::DisplayName() << " <-- " 
+                               << value << "   -------------" << std::endl;
             StropStreamProducer<R>::Output(value); 
             mLastValue = value;
             mIsValid = true;
