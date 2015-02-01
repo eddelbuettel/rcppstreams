@@ -9,6 +9,11 @@
         * inst/include/strop_data_source.h: Ditto
         * inst/include/transforms.h: Ditto
 
+	* src/hello.cpp: Some normalization with Streamulus
+	* src/common.cpp: Ditto
+	* src/movavg.cpp: Ditto
+	* src/sliding.cpp: Ditto
+
 2015-01-31  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Wrapped up as release 0.1.0

@@ -87,7 +87,7 @@ struct print
     typename result<print(T)>::type
     operator()(const T& value) const
     { 
-        Rcpp::Rcout << value << std::endl;
+        StreamulusOut << value << std::endl;
         return value;
     }
 };

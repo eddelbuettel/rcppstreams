@@ -49,7 +49,7 @@
 // All together now: Hello Streamulus!!
 // *******************************************************
 
-#include <streamulus.h>         // includes Rcpp.h as well
+#include <streamulus.h>         // also includes Rcpp.h 
 #include <iostream>
 
 // The print functor from example A.
@@ -67,12 +67,11 @@ struct print
     typename result<print(T)>::type
     operator()(const T& value) const
     { 
-        Rcpp::Rcout << value << std::endl;
+        StreamulusOut << value << std::endl;
         return value;
     }
 };
 
-void common_subexpressions();
 void common_subexpressions()
 {
     using namespace streamulus;

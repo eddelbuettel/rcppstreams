@@ -25,9 +25,8 @@
 // along with Streamulus.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#include <streamulus.h>         // include Rcpp.h as well
-//#include <iostream>
-
+#include <streamulus.h>         // also includes Rcpp.h 
+#include <iostream>
 
 // -------------------------------------------------------------------
 // This example implements an algorithm to detect crossings of two 
@@ -100,13 +99,24 @@
 //
 // --------------------------------------------------------------------
 
+
 // time-value pair
-struct TimeValue {
-    TimeValue() : time(0) , value(0) {}
+struct TimeValue
+{
+    TimeValue()
+        : time(0)
+        , value(0)
+    {
+    }
     
-    TimeValue(/*clock_t*/ double t, double v) : time(t), value(v) {}
+    TimeValue(clock_t t, double v)
+        : time(t)
+        , value(v)
+    {
+    }
     
-    friend std::ostream& operator<<(std::ostream& os, const TimeValue& tv) {
+    friend std::ostream& operator<<(std::ostream& os, const TimeValue& tv) 
+    {
         return os << "{" << tv.time << "," << tv.value << "}";
     }
     
@@ -116,22 +126,33 @@ struct TimeValue {
 };
 
 // Exponentially decaying moving average
-class Mavg {
+class Mavg
+{
 public:
     
-    Mavg(int decay_factor) : mFirst(true) , mDecayFactor(decay_factor) , mMavg(0) {}
+    Mavg(int decay_factor)
+    : mFirst(true)
+    , mDecayFactor(decay_factor)
+    , mMavg(0)
+    {
+    }
     
     template<class Sig> 
-    struct result {
+    struct result 
+    {
         typedef double type; 
     };
     
-    double operator()(const TimeValue& tick) {
-        if (! mFirst) {
+    double operator()(const TimeValue& tick) 
+    {
+        if (! mFirst)
+        {
             double alpha = 1-1/exp(mDecayFactor*(tick.time-mPrevTime));
             mMavg += alpha*(tick.value - mMavg);
             mPrevTime = tick.time;
-        } else {
+        } 
+        else 
+        {
             mMavg = tick.value;
             mPrevTime = tick.time;
             mFirst = false;
@@ -148,18 +169,25 @@ private:
 
 // Remove consecutive repetitions from a stream. 
 template<typename T>
-class unique {
+class unique
+{
 public:
     
-    unique() : mFirst(true) {}
+    unique()  
+        : mFirst(true) 
+    {
+    }
     
     template<class Sig> 
-    struct result {
+    struct result 
+    {
         typedef T type; 
     };
     
-    boost::optional<T> operator()(const T& value) {
-        if (mFirst || (value != mPrev)) {
+    boost::optional<T> operator()(const T& value) 
+    {
+        if (mFirst || (value != mPrev))
+        {
             mFirst = false;
             return mPrev = value;
         }
@@ -171,22 +199,24 @@ private:
     T mPrev;
 };
 
-
 // Print an alert when a cross comes. Value indicates 
 // the type of the cross.
 struct cross_alert
 {
     template<class Sig> 
-    struct result {
+    struct result 
+    {
         typedef bool type; 
     };
     
     
-    bool operator()(const bool is_golden_cross) {
+    bool operator()(const bool is_golden_cross) 
+    {
         if (is_golden_cross)
-            Rcpp::Rcout << "Golden cross detected!" << std::endl;
+            StreamulusOut << "Golden cross detected!" << std::endl;
         else
-            Rcpp::Rcout << "Death cross detected!" << std::endl;
+            StreamulusOut << "Death cross detected!" << std::endl;
+
         return is_golden_cross;
     }
     
@@ -206,7 +236,7 @@ struct print {
     template<typename T>
     typename result<print(T)>::type
     operator()(const T& value) const { 
-        Rcpp::Rcout << value << std::endl;
+        StreamulusOut << value << std::endl;
         return value;
     }
 };

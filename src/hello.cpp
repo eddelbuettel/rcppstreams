@@ -44,8 +44,8 @@
 //
 // ********************************************************
 
-#include <streamulus.h>         // include Rcpp.h as well
-//#include <iostream>
+#include <streamulus.h>         // also includes Rcpp.h 
+#include <iostream>
 
 // print is a functor that prints whatever it gets. 
 // Stremify<print> is a stream function that prints every
@@ -66,35 +66,10 @@ struct print
     typename result<print(T)>::type
     operator()(const T& value) const
     { 
-        //std::cout << value << std::endl;
-        Rcpp::Rcout << value << std::endl;
+        StreamulusOut << value << std::endl;
         return value;
     }
 };
-
-// print is a functor that prints whatever it gets. 
-// Stremify<print> is a stream function that prints every
-// element of a stream.
-struct notprint 
-{    
-    template<class Sig> struct result;
-    
-    // Boost result-of protocol (not necessary in C++11)
-    template<class This,typename T>
-    struct result<This(T)>
-    {
-        typedef T type; 
-    };
-    
-    // The actual function
-    template<typename T>
-    typename result<print(T)>::type
-    operator()(const T& value) const
-    { 
-        return value;
-    }
-};
-
 
 void hello_stream()
 {
