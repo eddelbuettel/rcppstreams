@@ -21,6 +21,6 @@
 
 #include <Rcpp.h>
 
-## We define a StreamulusOutput object 
+// We define a StreamulusOutput object 
 #define StreamulusOut Rcpp::Rcout
 
