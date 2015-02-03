@@ -12,9 +12,14 @@ This package provides the Streamulus headers and uses
 [Rcpp](http://dirk.eddelbuettel.com/code/rcpp.html) for a convenient
 bi-directional connection to the C++ layer.
 
+### See Also
+
+The [Streamulus](http://iritkatriel.github.io/streamulus/) and
+[RcppStreams](http://dirk.eddelbuettel.com/code/rcpp.streams.html) pages.
+
 ### Authors
 
-Dirk Eddelbuettel for this package\
+Dirk Eddelbuettel for this package  
 Irit Katriel for [Streamulus](http://iritkatriel.github.io/streamulus/)
 
 ### License
