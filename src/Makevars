@@ -1,3 +1,7 @@
 
-PKG_CXXFLAGS = -I../inst/include
+## This is a C++11 package
+CXX_STD = CXX11
+
+## We need the header in inst/include
+PKG_CPPFLAGS = -I../inst/include/ 
 

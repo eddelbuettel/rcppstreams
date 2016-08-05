@@ -1,3 +1,9 @@
+2016-08-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version): Roll minor version
+
+	* src/Makevars (CXX_STD): Compiled as a C++11 project
+
 2015-02-01  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/include/RcppStreams.h: Adding as first step towards a
