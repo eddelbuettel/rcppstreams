@@ -8,7 +8,7 @@
 #' @author Dirk Eddelbuettel
 #' @examples commonSubexpressions()
 commonSubexpressions <- function() {
-    .Call('_RcppStreams_commonSubexpressions', PACKAGE = 'RcppStreams')
+    .Call(`_RcppStreams_commonSubexpressions`)
 }
 
 #' This is an example function illustrating Streamulus
@@ -18,7 +18,7 @@ commonSubexpressions <- function() {
 #' @author Dirk Eddelbuettel
 #' @examples helloStream()
 helloStream <- function() {
-    .Call('_RcppStreams_helloStream', PACKAGE = 'RcppStreams')
+    .Call(`_RcppStreams_helloStream`)
 }
 
 #' This is an example function illustrating Streamulus
@@ -30,7 +30,7 @@ helloStream <- function() {
 #' @author Dirk Eddelbuettel
 #' @examples crossAlert(10,20)
 crossAlert <- function(f1, f2) {
-    .Call('_RcppStreams_crossAlert', PACKAGE = 'RcppStreams', f1, f2)
+    .Call(`_RcppStreams_crossAlert`, f1, f2)
 }
 
 #' This is an example function illustrating Streamulus
@@ -40,6 +40,6 @@ crossAlert <- function(f1, f2) {
 #' @author Dirk Eddelbuettel
 #' @examples slidingWindow()
 slidingWindow <- function() {
-    .Call('_RcppStreams_slidingWindow', PACKAGE = 'RcppStreams')
+    .Call(`_RcppStreams_slidingWindow`)
 }
 

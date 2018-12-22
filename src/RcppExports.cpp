@@ -49,20 +49,11 @@ BEGIN_RCPP
 END_RCPP
 }
 
-RcppExport SEXP RcppStreams_commonSubexpressions();
-RcppExport SEXP RcppStreams_crossAlert(SEXP, SEXP);
-RcppExport SEXP RcppStreams_helloStream();
-RcppExport SEXP RcppStreams_slidingWindow();
-
 static const R_CallMethodDef CallEntries[] = {
     {"_RcppStreams_commonSubexpressions", (DL_FUNC) &_RcppStreams_commonSubexpressions, 0},
     {"_RcppStreams_helloStream", (DL_FUNC) &_RcppStreams_helloStream, 0},
     {"_RcppStreams_crossAlert", (DL_FUNC) &_RcppStreams_crossAlert, 2},
     {"_RcppStreams_slidingWindow", (DL_FUNC) &_RcppStreams_slidingWindow, 0},
-    {"RcppStreams_commonSubexpressions", (DL_FUNC) &RcppStreams_commonSubexpressions, 0},
-    {"RcppStreams_crossAlert",           (DL_FUNC) &RcppStreams_crossAlert,           2},
-    {"RcppStreams_helloStream",          (DL_FUNC) &RcppStreams_helloStream,          0},
-    {"RcppStreams_slidingWindow",        (DL_FUNC) &RcppStreams_slidingWindow,        0},
     {NULL, NULL, 0}
 };
 
