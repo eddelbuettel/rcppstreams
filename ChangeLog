@@ -1,3 +1,8 @@
+2018-12-22  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/engine.h (streamulus): Comment-out optional use of
+	boost::proto::display_expr which upsets the linker under Boost 1.69
+
 2017-08-26  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .travis.yml (before_install): Use https for curl fetch
