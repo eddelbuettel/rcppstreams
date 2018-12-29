@@ -4,7 +4,7 @@
 // Streamulus Copyright (c) 2012 Irit Katriel. All rights reserved.
 //
 // This file is part of Streamulus.
-// 
+//
 // Streamulus is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -14,7 +14,7 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License
 // along with Streamulus.  If not, see <http://www.gnu.org/licenses/>.
 //
@@ -27,37 +27,37 @@
 #include <boost/proto/proto.hpp>
 
 
-#include "strop_stream_producer.h" 
+#include "strop_stream_producer.h"
 
 namespace streamulus
 {
-    
+
     template<typename F> // F = function signature
-    class Strop 
+    class Strop
         : public StropStreamProducer<typename boost::function_types::result_type<F>::type>
     {
     public:
-        
-        virtual ~Strop() 
+
+        virtual ~Strop()
         {
         }
-        
+
         template<typename Inputs> // a fusion sequence of the inputs
         void SetInputs(const Inputs& inputs)
         {
             mInputs=inputs;
         }
-        
+
         template<typename Tinput, int I>
         Stream<Tinput>* const Input()
         {
             return boost::fusion::at_c<I>(mInputs).get();
         }
-        
-                        
+
+
     private:
         template<typename T>
-        struct MakeStreamPtrType 
+        struct MakeStreamPtrType
         {
             typedef boost::shared_ptr<Stream<T>  > type;
         };
@@ -65,6 +65,6 @@ namespace streamulus
         typedef typename boost::mpl::transform<param_types,MakeStreamPtrType<boost::mpl::_1> >::type input_types;
         typename boost::fusion::result_of::as_vector<typename input_types::type>::type mInputs;
     };
-    
-    
+
+
 } // ns streamulus

@@ -4,7 +4,7 @@
 // Streamulus Copyright (c) 2012 Irit Katriel. All rights reserved.
 //
 // This file is part of Streamulus.
-// 
+//
 // Streamulus is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -14,45 +14,45 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License
 // along with Streamulus.  If not, see <http://www.gnu.org/licenses/>.
 //
 
 #pragma once
 
-#include "engine.h" 
-#include "stream.h" 
-#include "strop_base.h" 
+#include "engine.h"
+#include "stream.h"
+#include "strop_base.h"
 
 #include <boost/make_shared.hpp>
 
 namespace streamulus
 {
-    
-    template<typename R> 
+
+    template<typename R>
     class StropStreamProducer
     : public StropBase
     {
     public:
-        
+
         typedef R result_type;
-        
-        virtual ~StropStreamProducer() 
+
+        virtual ~StropStreamProducer()
         {
         }
-        
+
         void Output(const R& value)
         {
             if (!GetEngine())
                 return;
-            
+
             GetEngine()->template Output<R>(mVertexDescriptor,value);
             mCurrentValue = value;
-        }        
-        
+        }
+
         typedef boost::shared_ptr< Stream<R> > OutputStreamPtr;
-        
+
         OutputStreamPtr MakeOutputStream()
         {
             OutputStreamPtr stream = boost::make_shared< Stream<R> >();
@@ -60,10 +60,10 @@ namespace streamulus
                 stream->Append(*mCurrentValue);
             return stream;
         }
-        
+
     private:
         boost::optional<R> mCurrentValue;
     };
-    
-    
+
+
 } // ns streamulus

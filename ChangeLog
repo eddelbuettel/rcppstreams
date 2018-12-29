@@ -1,3 +1,15 @@
+2018-12-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/grammar.h: Convert from CRLF to CR
+	* inst/include/stream.h: Idem
+	* inst/include/strop.h: Idem
+	* inst/include/strop_func.h: Idem
+
+	* inst/include/operators.h: Added final newline
+	* inst/include/stream_base.h: Idem
+	* inst/include/strop_sliding_window.h: Idem
+	* inst/include/strop_stream_producer.h: Idem
+
 2018-12-22  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/include/engine.h (streamulus): Comment-out optional use of

@@ -4,7 +4,7 @@
 // Streamulus Copyright (c) 2012 Irit Katriel. All rights reserved.
 //
 // This file is part of Streamulus.
-// 
+//
 // Streamulus is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -14,7 +14,7 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License
 // along with Streamulus.  If not, see <http://www.gnu.org/licenses/>.
 //
@@ -26,11 +26,11 @@
 #include <boost/optional.hpp>
 
 namespace streamulus
-{    
+{
     template<typename T>
     class Stream : public StreamBase
     {
-    public:	
+    public:
 
         void Append(const T& item)
         {
@@ -41,12 +41,12 @@ namespace streamulus
         {
             return !mBuffer.empty();
         }
-        
+
         bool IsValid()
         {
             return mLastValue || !mBuffer.empty();
         }
-        
+
         const T& Current()
         {
             if (!mBuffer.empty())
@@ -56,15 +56,15 @@ namespace streamulus
             }
 
             assert(mLastValue);
-            
+
             // No new data - return last
             return *mLastValue;
         }
-                        
+
     private:
-                
+
         std::deque<T> mBuffer;
         boost::optional<T> mLastValue;
     };
-    
+
 } // ns streamulus
