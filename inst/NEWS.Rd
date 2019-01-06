@@ -2,6 +2,15 @@
 \title{News for Package \pkg{RcppStreams}}
 \newcommand{\cpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
 
+\section{Changes in version 0.1.2 (2019-01-05)}{
+  \itemize{
+    \item Added symbol registration
+    \item Converted a few files from CRLF to CR [CRAN checks]
+    \item Added a few final newlines [CRAN checks]
+    \item Disabled one optional output to enable BH 1.69 builds
+  }
+}
+
 \section{Changes in version 0.1.1 (2016-08-05)}{
   \itemize{
     \item Compilation is now done using C++11 standards per request of
