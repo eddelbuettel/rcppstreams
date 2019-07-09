@@ -18,9 +18,10 @@ An unconditional TRUE value
 This is an example function illustrating Streamulus
 }
 \examples{
+\dontrun{
 crossAlert(10,20)
+}
 }
 \author{
 Dirk Eddelbuettel
 }
-

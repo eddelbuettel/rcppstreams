@@ -2,7 +2,7 @@
 
 // adapted from Streamulus example 'C_user_defined_functions_and_filters.cpp'
 //
-// R Integration Copyright (C) 2014 - 2015  Dirk Eddelbuettel 
+// R Integration Copyright (C) 2014 - 2015  Dirk Eddelbuettel
 
 
 // C_user_defined_functions_and_filters.cpp
@@ -10,7 +10,7 @@
 // Streamulus Copyright (c) 2012 Irit Katriel. All rights reserved.
 //
 // This file is part of Streamulus.
-// 
+//
 // Streamulus is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -20,26 +20,26 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License
 // along with Streamulus.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#include <streamulus.h>         // also includes Rcpp.h 
+#include <streamulus.h>         // also includes Rcpp.h
 #include <iostream>
 
 // -------------------------------------------------------------------
-// This example implements an algorithm to detect crossings of two 
+// This example implements an algorithm to detect crossings of two
 // moving averages of a time series.
 // The input is given as {time, value} pairs.
 // We have a slow-decaying moving average and a fast-decaying one.
-// When they cross we issue an alert (in this case print to the 
+// When they cross we issue an alert (in this case print to the
 // screen). We distinguish between Death Crosses (where the slow
-// mavg crosses the fast one from below, so the time series is 
-// decreasing) and Golden Crosses (where it crosses from above, 
-// so the time series is increasing). 
+// mavg crosses the fast one from below, so the time series is
+// decreasing) and Golden Crosses (where it crosses from above,
+// so the time series is increasing).
 //
-// The example demonstrates expressions using user-defined functions, 
+// The example demonstrates expressions using user-defined functions,
 // * with and without filters
 // * Streamified by type or by object.
 //
@@ -108,18 +108,18 @@ struct TimeValue
         , value(0)
     {
     }
-    
+
     TimeValue(clock_t t, double v)
         : time(t)
         , value(v)
     {
     }
-    
-    friend std::ostream& operator<<(std::ostream& os, const TimeValue& tv) 
+
+    friend std::ostream& operator<<(std::ostream& os, const TimeValue& tv)
     {
         return os << "{" << tv.time << "," << tv.value << "}";
     }
-    
+
     //clock_t time;
     double time;
     double value;
@@ -129,29 +129,29 @@ struct TimeValue
 class Mavg
 {
 public:
-    
+
     Mavg(int decay_factor)
     : mFirst(true)
     , mDecayFactor(decay_factor)
     , mMavg(0)
     {
     }
-    
-    template<class Sig> 
-    struct result 
+
+    template<class Sig>
+    struct result
     {
-        typedef double type; 
+        typedef double type;
     };
-    
-    double operator()(const TimeValue& tick) 
+
+    double operator()(const TimeValue& tick)
     {
         if (! mFirst)
         {
             double alpha = 1-1/exp(mDecayFactor*(tick.time-mPrevTime));
             mMavg += alpha*(tick.value - mMavg);
             mPrevTime = tick.time;
-        } 
-        else 
+        }
+        else
         {
             mMavg = tick.value;
             mPrevTime = tick.time;
@@ -159,32 +159,32 @@ public:
         }
         return mMavg;
     }
-    
+
 private:
-    /*clock_t*/ double mPrevTime;    
+    /*clock_t*/ double mPrevTime;
     bool mFirst;
     int mDecayFactor;
-    double mMavg;  
+    double mMavg;
 };
 
-// Remove consecutive repetitions from a stream. 
+// Remove consecutive repetitions from a stream.
 template<typename T>
 class unique
 {
 public:
-    
-    unique()  
-        : mFirst(true) 
+
+    unique()
+        : mFirst(true)
     {
     }
-    
-    template<class Sig> 
-    struct result 
+
+    template<class Sig>
+    struct result
     {
-        typedef T type; 
+        typedef T type;
     };
-    
-    boost::optional<T> operator()(const T& value) 
+
+    boost::optional<T> operator()(const T& value)
     {
         if (mFirst || (value != mPrev))
         {
@@ -193,24 +193,24 @@ public:
         }
         return boost::none;
     }
-        
+
 private:
-    bool mFirst; 
+    bool mFirst;
     T mPrev;
 };
 
-// Print an alert when a cross comes. Value indicates 
+// Print an alert when a cross comes. Value indicates
 // the type of the cross.
 struct cross_alert
 {
-    template<class Sig> 
-    struct result 
+    template<class Sig>
+    struct result
     {
-        typedef bool type; 
+        typedef bool type;
     };
-    
-    
-    bool operator()(const bool is_golden_cross) 
+
+
+    bool operator()(const bool is_golden_cross)
     {
         if (is_golden_cross)
             StreamulusOut << "Golden cross detected!" << std::endl;
@@ -219,43 +219,43 @@ struct cross_alert
 
         return is_golden_cross;
     }
-    
+
 };
 
-// Functor that prints whatever it gets. 
+// Functor that prints whatever it gets.
 // Stremify<print> is a stream function that prints every
 // element of a stream.
-struct print {    
+struct print {
     template<class Sig> struct result;
-    
+
     template<class This,typename T>
     struct result<This(T)> {
-        typedef T type; 
+        typedef T type;
     };
-    
+
     template<typename T>
     typename result<print(T)>::type
-    operator()(const T& value) const { 
+    operator()(const T& value) const {
         StreamulusOut << value << std::endl;
         return value;
     }
 };
 
 
-// Return whatever you got as a string. This is useful 
+// Return whatever you got as a string. This is useful
 // for printing sub-expression results within a string
 // (converting to string allows + with other strings).
-struct as_string {    
+struct as_string {
     template<class Sig> struct result;
-    
+
     template<class This,typename T>
     struct result<This(T)> {
-        typedef std::string type; 
+        typedef std::string type;
     };
-    
+
     template<typename T>
     typename result<print(T)>::type
-    operator()(const T& value) const { 
+    operator()(const T& value) const {
         std::stringstream ss;
         ss << value;
         return ss.str();
@@ -264,20 +264,20 @@ struct as_string {
 
 void cross_alert_example(int f1, int f2) {
     using namespace streamulus;
-    
+
     InputStream<TimeValue>::type ts = NewInputStream<TimeValue>("TS", false /* verbose */);
     Streamulus engine;
 
     // The moving averages are streamified from the function objects.
     Mavg mavg1(f1);
     Mavg mavg10(f2);
-    
+
     Subscription<double>::type slow = engine.Subscribe(Streamify(mavg1)(ts));
     Subscription<double>::type fast = engine.Subscribe(Streamify(mavg10)(ts));
 
-    // print and cross_alert are streamified from the types (this work because they 
+    // print and cross_alert are streamified from the types (this work because they
     // can be default constructed).
-    
+
     // Print the moving averages:
     engine.Subscribe(Streamify<print>(std::string("Slow Mavg = ") + Streamify<as_string>(slow)));
     engine.Subscribe(Streamify<print>(std::string("Fast Mavg = ") + Streamify<as_string>(fast)));
@@ -298,7 +298,10 @@ void cross_alert_example(int f1, int f2) {
 //' @param f2 Parameter for the faster exponential moving average
 //' @return An unconditional TRUE value
 //' @author Dirk Eddelbuettel
-//' @examples crossAlert(10,20)
+//' @examples
+//' \dontrun{
+//' crossAlert(10,20)
+//' }
 // [[Rcpp::export]]
 bool crossAlert(int f1, int f2) {
     cross_alert_example(f1, f2);

@@ -2,6 +2,12 @@
 \title{News for Package \pkg{RcppStreams}}
 \newcommand{\cpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
 
+\section{Changes in version 0.1.3 (2019-02-24)}{
+  \itemize{
+    \item No longer run examples as they upset the UBSAN checks at CRAN
+  }
+}
+
 \section{Changes in version 0.1.2 (2019-01-05)}{
   \itemize{
     \item Added symbol registration

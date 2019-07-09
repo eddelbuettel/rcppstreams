@@ -13,9 +13,10 @@ An unconditional TRUE value
 This is an example function illustrating Streamulus
 }
 \examples{
+\dontrun{
 commonSubexpressions()
+}
 }
 \author{
 Dirk Eddelbuettel
 }
-
