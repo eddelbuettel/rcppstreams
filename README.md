@@ -1,6 +1,11 @@
-## RcppStreams [![Build Status](https://travis-ci.org/eddelbuettel/rcppstreams.png)](https://travis-ci.org/eddelbuettel/rcppstreams) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%203%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-3.0.html) [![CRAN](http://www.r-pkg.org/badges/version/RcppStreams)](https://cran.r-project.org/package=RcppStreams) [![Dependencies](https://tinyverse.netlify.com/badge/RcppStreams)](https://cran.r-project.org/package=RcppStreams) [![Downloads](http://cranlogs.r-pkg.org/badges/RcppStreams?color=brightgreen)](http://www.r-pkg.org/pkg/RcppStreams)
+## RcppStreams: Connecting Streamulus and R
 
-Connecting Streamulus and R
+[![Build Status](https://travis-ci.org/eddelbuettel/rcppstreams.png)](https://travis-ci.org/eddelbuettel/rcppstreams) 
+[![License](http://img.shields.io/badge/license-GPL%20%28%3E=%203%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-3.0.html) 
+[![CRAN](http://www.r-pkg.org/badges/version/RcppStreams)](https://cran.r-project.org/package=RcppStreams) 
+[![Dependencies](https://tinyverse.netlify.com/badge/RcppStreams)](https://cran.r-project.org/package=RcppStreams) 
+[![Downloads](http://cranlogs.r-pkg.org/badges/RcppStreams?color=brightgreen)](http://www.r-pkg.org/pkg/RcppStreams)
+[![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/rcppstreams)](https://github.com/eddelbuettel/rcppstreams)
 
 ### Background
 
