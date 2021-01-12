@@ -1,5 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 LICENSE
-.travis.yml
+^\.travis\.yml
 ^.*\.tar\.gz
+^\.github
