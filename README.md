@@ -1,6 +1,5 @@
 ## RcppStreams: Connecting Streamulus and R
 
-[![Build Status](https://travis-ci.org/eddelbuettel/rcppstreams.png)](https://travis-ci.org/eddelbuettel/rcppstreams) 
 [![CI](https://github.com/eddelbuettel/rcppstreams/workflows/ci/badge.svg)](https://github.com/eddelbuettel/rcppstreams/actions?query=workflow%3Aci)
 [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%203%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-3.0.html) 
 [![CRAN](http://www.r-pkg.org/badges/version/RcppStreams)](https://cran.r-project.org/package=RcppStreams) 
