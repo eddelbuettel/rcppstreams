@@ -2,6 +2,14 @@
 \title{News for Package \pkg{RcppStreams}}
 \newcommand{\cpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
 
+\section{Changes in version 0.1.4 (2024-01-29)}{
+  \itemize{
+    \item Package maintenance with updates to DESCRIPTION and README.md
+    \item Continunous integration has been update multiple times
+    \item No longer set a C++ compilation standard
+  }
+}
+
 \section{Changes in version 0.1.3 (2019-02-24)}{
   \itemize{
     \item No longer run examples as they upset the UBSAN checks at CRAN
