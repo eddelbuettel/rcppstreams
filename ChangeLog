@@ -1,3 +1,7 @@
+2026-02-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Switch to CRAN-retired badge, mention retired status
+
 2026-01-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml: Switch to actions/checkout@v6
